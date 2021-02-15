@@ -33,10 +33,22 @@
     <script src="mazer/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="mazer/js/bootstrap.bundle.min.js"></script>
     <script src="mazer/vendors/simple-datatables/simple-datatables.js"></script>
+
+    <!-- SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
+        // let table1 = document.querySelector('#table1');
+        // let dataTable = new simpleDatatables.DataTable(table1);
+
+        let jobseekers = document.querySelector('#jobseekers');
+        let dataTable = new simpleDatatables.DataTable(jobseekers);
+        
+    </script>
+    <script>
+    @if(Session::has('success'))
+        swal("Good job!", "{{Session::get('success')}}", "success");
+    @endif
     </script>
 
     <script src="mazer/js/main.js"></script>

@@ -18,4 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', 'DashboardController@index');
+
 Route::get('/jobseekers', 'JobSeekersController@index');
+Route::get('getjobseekers', [
+    'uses' => 'JobSeekersController@getjobseekers',
+    'as' => 'ajax.get.data.jobseekers',
+]);
+Route::post('/jobseekers/insert','JobSeekersController@insert');

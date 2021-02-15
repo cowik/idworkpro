@@ -14,25 +14,21 @@ class CreatejobseekersTable extends Migration
     public function up()
     {
         Schema::create('jobseekers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('placebirth');
-            $table->string('idnumber');
-            $table->string('phonenumber');
-            $table->string('name');
-            $table->string('placebirth');
-            $table->string('religion');
-            $table->string('email');
-            $table->date('datebirth');
-            $table->string('placebirth');
-            $table->string('idphoto');
-            $table->text('currentaddress');
-            $table->string('latestdegree');
-            $table->string('contracttype');
-            $table->text('jobexperience');
-            $table->string('latestdegreecert');
-            $table->date('availabledate');
-            $table->text('jobinterest');
+            $table->id();
+            $table->string('name')->nullable();
+            $table->string('placebirth')->nullable();
+            $table->string('idnumber')->nullable();
+            $table->string('phonenumber')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('email')->nullable();
+            $table->date('datebirth')->nullable();
+            $table->text('currentaddress')->nullable();
+            $table->string('latestdegree')->nullable();
+            $table->string('contracttype')->nullable();
+            $table->text('jobexperience')->nullable();
+            $table->string('latestdegreecert')->nullable();
+            $table->date('availabledate')->nullable();
+            $table->text('jobinterest')->nullable();
             $table->timestamps();
         });
     }
@@ -44,6 +40,6 @@ class CreatejobseekersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('jobseekers');
     }
 }
