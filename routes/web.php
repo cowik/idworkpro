@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/', 'DashboardController@index');
 
 Route::get('/jobseekers', 'JobSeekersController@index');
 Route::get('getjobseekers', [
