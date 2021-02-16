@@ -9,7 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mazer/css/bootstrap.css">
-    <link rel="stylesheet" href="mazer/vendors/simple-datatables/style.css">
+
+    <!-- DataTables -->
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="mazer/vendors/iconly/bold.css">
 
@@ -32,26 +35,47 @@
     </div>
     <script src="mazer/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="mazer/js/bootstrap.bundle.min.js"></script>
-    <script src="mazer/vendors/simple-datatables/simple-datatables.js"></script>
+
+    <!-- DataTables -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript">
+    $(function () {
+        
+        var table = $('#jobseekers').DataTable({
+            "processing": true,
+            "serverside":true,
+            "ajax": "{{route('ajax.get.data.jobseekers')}}",
+            "columns":[
+                {data:'name',name:'name'},
+                {data:'email',email:'email'},
+                {data:'phonenumber',phonenumber:'phonenumber'},
+                {data:'action',action:'action'}
+            ],
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": false,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true
+        });
+        
+    });
+    </script>
 
     <!-- SweetAlert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        // Simple Datatable
-        // let table1 = document.querySelector('#table1');
-        // let dataTable = new simpleDatatables.DataTable(table1);
 
-        let jobseekers = document.querySelector('#jobseekers');
-        let dataTable = new simpleDatatables.DataTable(jobseekers);
-        
-    </script>
     <script>
     @if(Session::has('success'))
         swal("Good job!", "{{Session::get('success')}}", "success");
     @endif
     </script>
-
-    <script src="mazer/js/main.js"></script>
 </body>
 
 </html>

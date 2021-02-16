@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\JobSeekers;
+use Yajra\DataTables\Facades\DataTables;
 
 class JobSeekersController extends Controller
 {
@@ -20,21 +21,7 @@ class JobSeekersController extends Controller
 
             return Datatables::of($jobseekers)
                 ->addColumn('action',function($j){
-                    return '<a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-folder">
-                                </i>
-                                View
-                            </a>
-                            <a class="btn btn-info btn-sm" href="/jobseekers/'.$j->id.'/edit">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Edit
-                            </a>
-                            <a class="btn btn-danger btn-sm delete" href="#" jobseekersid="'.$j->id.'">
-                                <i class="fas fa-trash">
-                                </i>
-                                Delete
-                            </a>';
+                    return '';
                 })
             ->rawColumns(['action'])
             ->toJson();
@@ -44,21 +31,7 @@ class JobSeekersController extends Controller
 
             return Datatables::of($jobseekers)
             ->addColumn('action',function($j){
-                return '<a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
-                        <a class="btn btn-info btn-sm" href="/jobseekers/'.$j->id.'/edit">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm delete" href="#" jobseekersid="'.$j->id.'">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>';
+                return '';
             })
             ->rawColumns(['action'])
             ->toJson();
@@ -66,6 +39,12 @@ class JobSeekersController extends Controller
     }
 
     public function insert(Request $request){
+
+        if($request->hasFile('profilephoto') && $request->hasFile('idphoto')){
+            $request->file('profilephoto')->move('images/', $request->file('profilephoto')->getClientOriginalName());  
+            $request->file('idphoto')->move('images/', $request->file('idphoto')->getClientOriginalName());  
+        }
+        
         \App\JobSeekers::create($request->all());
         return redirect('jobseekers')->with('success', 'Input Success !');
     }

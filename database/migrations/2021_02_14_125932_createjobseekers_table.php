@@ -18,10 +18,12 @@ class CreatejobseekersTable extends Migration
             $table->string('name')->nullable();
             $table->string('placebirth')->nullable();
             $table->string('idnumber')->nullable();
+            $table->string('profilephoto')->nullable();
             $table->string('phonenumber')->nullable();
             $table->string('religion')->nullable();
             $table->string('email')->nullable();
             $table->date('datebirth')->nullable();
+            $table->string('idphoto')->nullable();
             $table->text('currentaddress')->nullable();
             $table->string('latestdegree')->nullable();
             $table->string('contracttype')->nullable();

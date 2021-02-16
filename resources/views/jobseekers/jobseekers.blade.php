@@ -14,7 +14,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table table-striped" id="jobseekers">
+                <table class="table table-bordered table-striped" id="jobseekers">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -41,7 +41,7 @@
                             <i data-feather="x"></i>
                         </button>
                     </div>
-                    <form action="/jobseekers/insert" method="POST">
+                    <form action="/jobseekers/insert" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="modal-body">
                         <div class="card-body">
@@ -52,27 +52,27 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" name="name" required>
+                                        <input type="text" class="form-control" name="name">
                                     </div>
                                     <div class="form-group">
                                         <label>Place Birth</label>
-                                        <input type="text" class="form-control" name="placebirth" required>
+                                        <input type="text" class="form-control" name="placebirth">
                                     </div>
                                     <div class="form-group">
                                         <label>ID Number</label>
-                                        <input type="text" class="form-control" name="idnumber" required>
+                                        <input type="text" class="form-control" name="idnumber">
                                     </div>
                                     <div class="form-group">
                                         <label>Profile Photo</label>
-                                        <input class="form-control" type="file" id="formFile" required>
+                                        <input class="form-control" type="file" name="profilephoto">
                                     </div>
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="text" class="form-control" name="phonenumber" required> 
+                                        <input type="text" class="form-control" name="phonenumber"> 
                                     </div>
                                     <div class="form-group">
                                         <label>Religion</label>
-                                        <select class="form-select" name="religion" required>
+                                        <select class="form-select" name="religion">
                                             <option>Select</option>
                                             <option>Islam</option>
                                             <option>Kristen</option>
@@ -87,19 +87,19 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" name="email" required>
+                                        <input type="text" class="form-control" name="email">
                                     </div>
                                     <div class="form-group">
                                         <label>Date Birth</label>
-                                        <input type="date" class="form-control" name="datebirth" required>
+                                        <input type="date" class="form-control" name="datebirth">
                                     </div>
                                     <div class="form-group">
                                         <label>ID Photo</label>
-                                        <input class="form-control" type="file" id="formFile" required>
+                                        <input class="form-control" type="file" name="idphoto">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label>Current Address</label>
-                                        <textarea class="form-control" name="currentaddress" rows="3" required></textarea>
+                                        <textarea class="form-control" name="currentaddress" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <h5 class="modal-title" id="myModalLabel160">
@@ -108,29 +108,29 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Latest Degree</label>
-                                        <input type="text" class="form-control" name="latestdegree" required>
+                                        <input type="text" class="form-control" name="latestdegree">
                                     </div>
                                     <div class="form-group">
                                         <label>Contract Type</label>
-                                        <input type="text" class="form-control" name="contracttype" required>
+                                        <input type="text" class="form-control" name="contracttype">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label>Job Experience</label>
-                                        <textarea class="form-control" name="jobexperience" rows="3" required></textarea>
+                                        <textarea class="form-control" name="jobexperience" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Latest Degree Cert</label>
-                                        <input type="text" class="form-control" name="latestdegreecert" required>
+                                        <input type="text" class="form-control" name="latestdegreecert">
                                     </div>
                                     <div class="form-group">
                                         <label>Available Date</label>
-                                        <input type="date" class="form-control" name="availabledate" required>
+                                        <input type="date" class="form-control" name="availabledate">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label>Job Interest</label>
-                                        <textarea class="form-control" name="jobinterest" rows="3" required></textarea>
+                                        <textarea class="form-control" name="jobinterest" rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>
