@@ -10,7 +10,7 @@
             <div class="card-header">
                 <button type="button" class="btn btn-outline-primary"
                     data-bs-toggle="modal" data-bs-target="#primary">
-                    Add Job Seekersss
+                    Add Job Seeker
                 </button>
             </div>
             <div class="card-body">
